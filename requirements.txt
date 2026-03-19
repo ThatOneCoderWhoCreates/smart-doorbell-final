@@ -1,0 +1,36 @@
+# requirements.txt — smart-doorbell-integrated
+# Merged from Repo 1 (smart-doorbell) + Repo 2 (Threat_detection_model)
+
+# ── Computer vision ──────────────────────────────────────────────────
+opencv-python>=4.8.0
+ultralytics>=8.0.0          # YOLOv8 (shared by both repos — one copy)
+
+# ── Face recognition (Repo 2) ─────────────────────────────────────────
+deepface>=0.0.79
+tf-keras>=2.15.0            # deepface backend
+scipy>=1.11.0               # cosine distance
+
+# ── Audio detection (Repo 2) ──────────────────────────────────────────
+pyaudio>=0.2.13
+
+# ── Web server / API (Repo 1) ─────────────────────────────────────────
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+jinja2>=3.1.0
+python-multipart>=0.0.9
+aiofiles>=23.0.0
+pywebpush>=1.14.0          # Web Push / VAPID notifications
+
+# ── Notifications ─────────────────────────────────────────────────────
+requests>=2.31.0            # Telegram HTTP calls (Repo 2)
+# Note: Repo 1's push notification library goes here if applicable
+# e.g. pyfcm>=1.5.4 for Firebase
+
+# ── Raspberry Pi hardware (Repo 1) ────────────────────────────────────
+# Uncomment on Pi:
+# RPi.GPIO>=0.7.1
+# gpiozero>=2.0
+
+# ── Utilities ─────────────────────────────────────────────────────────
+numpy>=1.24.0
+pyyaml>=6.0.1               # retained for any legacy config.yaml reads
